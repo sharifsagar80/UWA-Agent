@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project Portfolio — UWA Agent</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Project Portfolio</h1>
+      <p class="lead">Selected projects and screenshots — click any image to view larger.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="project">
+      <h2>Project Title</h2>
+      <p class="project-description">Short description of the project (tech stack, role, highlights).</p>
+
+      <div class="gallery" id="gallery">
+        <!-- Replace these <a> image links with your own files in /images/ -->
+        <a href="images/project-1-large.jpg" class="gallery-item" data-caption="Project 1 — Screenshot 1">
+          <img src="images/project-1-thumb.jpg" alt="Project 1 screenshot 1" loading="lazy">
+        </a>
+        <a href="images/project-2-large.jpg" class="gallery-item" data-caption="Project 1 — Screenshot 2">
+          <img src="images/project-2-thumb.jpg" alt="Project 1 screenshot 2" loading="lazy">
+        </a>
+        <a href="images/project-3-large.jpg" class="gallery-item" data-caption="Project 1 — Screenshot 3">
+          <img src="images/project-3-thumb.jpg" alt="Project 1 screenshot 3" loading="lazy">
+        </a>
+        <a href="images/project-4-large.jpg" class="gallery-item" data-caption="Project 1 — Screenshot 4">
+          <img src="images/project-4-thumb.jpg" alt="Project 1 screenshot 4" loading="lazy">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lb-close" aria-label="Close">✕</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Previous">‹</button>
+    <div class="lightbox-content">
+      <img id="lb-image" src="" alt="">
+      <p id="lb-caption" class="lightbox-caption"></p>
+    </div>
+    <button class="lightbox-next" id="lb-next" aria-label="Next">›</button>
+  </div>
+
+  <script>
+    // Simple lightbox (no external dependency)
+    (function () {
+      const gallery = document.getElementById('gallery');
+      const lightbox = document.getElementById('lightbox');
+      const lbImage = document.getElementById('lb-image');
+      const lbCaption = document.getElementById('lb-caption');
+      const closeBtn = document.getElementById('lb-close');
+      const prevBtn = document.getElementById('lb-prev');
+      const nextBtn = document.getElementById('lb-next');
+      let items = Array.from(gallery.querySelectorAll('a.gallery-item'));
+      let current = -1;
+
+      function open(index) {
+        const item = items[index];
+        lbImage.src = item.href;
+        lbImage.alt = item.querySelector('img').alt || '';
+        lbCaption.textContent = item.dataset.caption || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        current = index;
+      }
+
+      function close() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lbImage.src = '';
+        current = -1;
+      }
+
+      function showPrev() { if (current > 0) open(current - 1); }
+      function showNext() { if (current < items.length - 1) open(current + 1); }
+
+      gallery.addEventListener('click', (e) => {
+        const a = e.target.closest('a.gallery-item');
+        if (!a) return;
+        e.preventDefault();
+        const index = items.indexOf(a);
+        open(index);
+      });
+
+      closeBtn.addEventListener('click', close);
+      prevBtn.addEventListener('click', showPrev);
+      nextBtn.addEventListener('click', showNext);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) close();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('open')) {
+          if (e.key === 'Escape') close();
+          if (e.key === 'ArrowLeft') showPrev();
+          if (e.key === 'ArrowRight') showNext();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
