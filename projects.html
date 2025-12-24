@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project • UWA Agent Fact-Checking Framework</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="brand-mark">UWA</span>
+        <span class="brand-name">Agent Fact-Checking</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle>☰</button>
+
+      <nav class="nav-links" data-nav>
+        <a href="index.html#overview">Overview</a>
+        <a href="index.html#demo">Demo</a>
+        <a href="index.html#results">Results</a>
+        <a class="active" href="projects.html">Project</a>
+        <a href="index.html#team">Team</a>
+        <a href="index.html#publications">Publications</a>
+        <button class="btn ghost" data-theme-toggle aria-label="Toggle theme">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h1>Project</h1>
+        <p class="muted">Architecture, modules, and how to reproduce experiments.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h2>Architecture</h2>
+          <ol class="steps">
+            <li><strong>Claim parsing</strong>: extract entities, time, location, and sub-claims.</li>
+            <li><strong>Stage-1 evidence</strong>: retrieval + tool calls per subtask (text/image/match).</li>
+            <li><strong>Veracity estimation</strong>: calibrated confidence per modality/subtask.</li>
+            <li><strong>Debate fusion</strong>: skeptic vs supporter + judge aggregation.</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>Modules</h2>
+          <ul class="bullets">
+            <li><strong>Orchestrator</strong>: planning, budgets, stopping rules.</li>
+            <li><strong>Retrieval</strong>: Google/HybridRAG/Wikipedia, citation tracking.</li>
+            <li><strong>Perception</strong>: optional forgery cues, VQA, time detection.</li>
+            <li><strong>Decision</strong>: uncertainty-aware fusion + logs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Quickstart</h2>
+        <p class="muted">Replace commands with your real repo commands.</p>
+        <pre class="code"><code># 1) Create env
+conda create -n uwa-afc python=3.10 -y
+conda activate uwa-afc
+
+# 2) Install
+pip install -r requirements.txt
+
+# 3) Run demo
+python app.py
+
+# 4) Evaluate
+python scripts/evaluate_dataset_mm.py --dataset mmfakebench --split test
+</code></pre>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Datasets</h3>
+          <p class="muted">MMFakeBench, DGM4, NewsCLIPpings, Factify-3M…</p>
+          <a class="btn" href="#">Dataset Instructions</a>
+        </div>
+        <div class="card">
+          <h3>Reproducibility</h3>
+          <p class="muted">Seeds, configs, checkpoints, logging.</p>
+          <a class="btn" href="#">Repro Guide</a>
+        </div>
+        <div class="card">
+          <h3>License</h3>
+          <p class="muted">Choose MIT / Apache-2.0 / CC-BY for docs.</p>
+          <a class="btn" href="#">LICENSE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer">
+      <p class="muted small">© <span data-year></span> UWA Agent Fact-Checking Framework</p>
+      <a class="muted small" href="index.html">Home</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
