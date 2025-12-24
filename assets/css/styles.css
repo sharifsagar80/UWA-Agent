@@ -115,6 +115,9 @@ h1{ font-size: clamp(30px, 4vw, 44px); margin: 0 0 10px; }
 .lead{ color: var(--muted); font-size: 1.06rem; margin: 0 0 18px; }
 
 .hero-media img{
+  background: #ffffff;   /* white background */
+  padding: 16px;
+  border-radius: 18px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
