@@ -316,9 +316,15 @@ th{ color: var(--muted); font-weight: 800; }
   .nav-links.is-open{ display:flex; }
 }
 
-.framework-teaser{
-  background: #ffffff !important;
-  padding: 16px !important;
-  border-radius: 18px !important;
-  display: block !important;
+.figure-panel{
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.figure-panel img{
+  display: block;
+  margin: auto;
 }
