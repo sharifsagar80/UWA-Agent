@@ -2,107 +2,300 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Project Portfolio — UWA Agent</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UWA Agent Fact-Checking Framework</title>
+  <meta name="description" content="A multi-agent, evidence-centric multimodal fact-checking framework developed at UWA." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
+
 <body>
+  <!-- Top Nav -->
   <header class="site-header">
-    <div class="container">
-      <h1>Project Portfolio</h1>
-      <p class="lead">Selected projects and screenshots — click any image to view larger.</p>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="brand-mark">UWA</span>
+        <span class="brand-name">Agent Fact-Checking</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+        ☰
+      </button>
+
+      <nav class="nav-links" data-nav>
+        <a href="#overview">Overview</a>
+        <a href="#demo">Demo</a>
+        <a href="#results">Results</a>
+        <a href="projects.html">Project</a>
+        <a href="#team">Team</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+        <button class="btn ghost" data-theme-toggle aria-label="Toggle theme">🌓</button>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="project">
-      <h2>Project Title</h2>
-      <p class="project-description">Short description of the project (tech stack, role, highlights).</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="tag">University of Western Australia • Multi-Agent • Evidence-Centric</p>
+        <h1>UWA Agent Fact-Checking Framework</h1>
+        <p class="lead">
+          A modular multi-agent system for multimodal claim verification (image–text), combining
+          evidence retrieval, tool-augmented reasoning, uncertainty-aware decisions, and debate-based fusion.
+        </p>
 
-      <div class="gallery" id="gallery">
-        <!-- Replace these <a> image links with your own files in /images/ -->
-        <a href="images/project-1-large.jpg" class="gallery-item" data-caption="Project 1 — Screenshot 1">
-          <img src="images/project-1-thumb.jpg" alt="Project 1 screenshot 1" loading="lazy">
-        </a>
-        <a href="images/project-2-large.jpg" class="gallery-item" data-caption="Project 1 — Screenshot 2">
-          <img src="images/project-2-thumb.jpg" alt="Project 1 screenshot 2" loading="lazy">
-        </a>
-        <a href="images/project-3-large.jpg" class="gallery-item" data-caption="Project 1 — Screenshot 3">
-          <img src="images/project-3-thumb.jpg" alt="Project 1 screenshot 3" loading="lazy">
-        </a>
-        <a href="images/project-4-large.jpg" class="gallery-item" data-caption="Project 1 — Screenshot 4">
-          <img src="images/project-4-thumb.jpg" alt="Project 1 screenshot 4" loading="lazy">
-        </a>
+        <div class="cta-row">
+          <a class="btn primary" href="projects.html">Explore the Project</a>
+          <a class="btn" href="#demo">See Demo</a>
+          <a class="btn ghost" href="https://github.com/YOUR_ORG/YOUR_REPO" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">MCTS / Planning</span>
+          <span class="pill">Tool Use</span>
+          <span class="pill">Fact-Checking</span>
+          <span class="pill">Multimodal</span>
+          <span class="pill">Uncertainty</span>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <!-- Lightbox modal -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lb-close" aria-label="Close">✕</button>
-    <button class="lightbox-prev" id="lb-prev" aria-label="Previous">‹</button>
-    <div class="lightbox-content">
-      <img id="lb-image" src="" alt="">
-      <p id="lb-caption" class="lightbox-caption"></p>
+      <div class="hero-media">
+        <img src="assets/img/hero.jpg" alt="Framework teaser image" loading="lazy" />
+      </div>
     </div>
-    <button class="lightbox-next" id="lb-next" aria-label="Next">›</button>
-  </div>
+  </section>
 
-  <script>
-    // Simple lightbox (no external dependency)
-    (function () {
-      const gallery = document.getElementById('gallery');
-      const lightbox = document.getElementById('lightbox');
-      const lbImage = document.getElementById('lb-image');
-      const lbCaption = document.getElementById('lb-caption');
-      const closeBtn = document.getElementById('lb-close');
-      const prevBtn = document.getElementById('lb-prev');
-      const nextBtn = document.getElementById('lb-next');
-      let items = Array.from(gallery.querySelectorAll('a.gallery-item'));
-      let current = -1;
+  <!-- Slider -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Highlights</h2>
+        <p class="muted">Screenshots, qualitative examples, or system diagrams.</p>
+      </div>
 
-      function open(index) {
-        const item = items[index];
-        lbImage.src = item.href;
-        lbImage.alt = item.querySelector('img').alt || '';
-        lbCaption.textContent = item.dataset.caption || '';
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden', 'false');
-        current = index;
-      }
+      <div class="slider" data-slider>
+        <div class="slides" data-slides>
+          <figure class="slide is-active">
+            <img src="assets/img/slider-1.jpg" alt="Stage-1 evidence acquisition" loading="lazy" />
+            <figcaption>Stage-1: Evidence acquisition & structured summaries</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/img/slider-2.jpg" alt="Multi-agent debate fusion" loading="lazy" />
+            <figcaption>Stage-2: Multi-Agent Debate (MAD) for final decision</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/img/slider-3.jpg" alt="Benchmark results" loading="lazy" />
+            <figcaption>Benchmarks: claim-level verification across datasets</figcaption>
+          </figure>
+        </div>
 
-      function close() {
-        lightbox.classList.remove('open');
-        lightbox.setAttribute('aria-hidden', 'true');
-        lbImage.src = '';
-        current = -1;
-      }
+        <div class="slider-controls">
+          <button class="btn" data-prev aria-label="Previous slide">←</button>
+          <div class="dots" data-dots aria-label="Slide dots"></div>
+          <button class="btn" data-next aria-label="Next slide">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      function showPrev() { if (current > 0) open(current - 1); }
-      function showNext() { if (current < items.length - 1) open(current + 1); }
+  <!-- Overview -->
+  <section id="overview" class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Overview</h2>
+        <p class="muted">What the framework is and why it matters.</p>
+      </div>
 
-      gallery.addEventListener('click', (e) => {
-        const a = e.target.closest('a.gallery-item');
-        if (!a) return;
-        e.preventDefault();
-        const index = items.indexOf(a);
-        open(index);
-      });
+      <div class="grid-3">
+        <div class="card">
+          <h3>Evidence-centric</h3>
+          <p>
+            Claim verification is treated as structured reasoning: parse → retrieve → assess → decide,
+            with explicit citations for every decision.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Multi-agent</h3>
+          <p>
+            Specialized agents handle retrieval, perception, verification, and deliberation.
+            Debate improves robustness and reduces single-model failure modes.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Tool-augmented</h3>
+          <p>
+            Integrates web search, VQA, time detection, entity grounding, and forgery cues
+            under a single orchestrated pipeline.
+          </p>
+        </div>
+      </div>
 
-      closeBtn.addEventListener('click', close);
-      prevBtn.addEventListener('click', showPrev);
-      nextBtn.addEventListener('click', showNext);
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) close();
-      });
-      document.addEventListener('keydown', (e) => {
-        if (lightbox.classList.contains('open')) {
-          if (e.key === 'Escape') close();
-          if (e.key === 'ArrowLeft') showPrev();
-          if (e.key === 'ArrowRight') showNext();
-        }
-      });
-    })();
-  </script>
+      <div class="callout">
+        <strong>Use cases:</strong> misinformation monitoring, newsroom verification, social media moderation,
+        and decision support for analysts.
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo -->
+  <section id="demo" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Demo</h2>
+        <p class="muted">Replace with your Gradio link, video, or GIF.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Live Demo</h3>
+          <p>Link to Gradio / HuggingFace Space / internal UWA demo page.</p>
+          <a class="btn primary" href="#" target="_blank" rel="noreferrer">Open Demo</a>
+        </div>
+
+        <div class="card">
+          <h3>Video</h3>
+          <p>Embed a short YouTube/Vimeo demo or add a GIF to assets and show it here.</p>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Watch Video</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Results</h2>
+        <p class="muted">Add numbers, plots, or a small table summary.</p>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap" role="region" aria-label="Results table" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th>Dataset</th>
+                <th>Task</th>
+                <th>Metric</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MMFakeBench</td>
+                <td>4-way claim veracity</td>
+                <td>Macro-F1</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>DGM4</td>
+                <td>Binary / 4-way</td>
+                <td>Accuracy</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>NewsCLIPpings</td>
+                <td>Image–text consistency</td>
+                <td>AUC</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted small">Tip: Put real values here and link to your paper/appendix for details.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Team</h2>
+        <p class="muted">Add photos and roles (optional).</p>
+      </div>
+
+      <div class="team">
+        <article class="person card">
+          <img src="assets/img/team-1.jpg" alt="Team member 1" loading="lazy" />
+          <div>
+            <h3>A S M Sharifuzzaman Sagar</h3>
+            <p class="muted">PhD Candidate • UWA</p>
+          </div>
+        </article>
+
+        <article class="person card">
+          <img src="assets/img/team-2.jpg" alt="Team member 2" loading="lazy" />
+          <div>
+            <h3>Supervisors</h3>
+            <p class="muted">Add names & lab affiliations here</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications" class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Publications</h2>
+        <p class="muted">Add your papers, arXiv links, and BibTeX.</p>
+      </div>
+
+      <div class="card">
+        <ul class="pubs">
+          <li>
+            <strong>UWA Agent Fact-Checking Framework</strong> — Preprint / Under review.
+            <span class="pub-links">
+              <a href="#" target="_blank" rel="noreferrer">Paper</a>
+              <a href="#" target="_blank" rel="noreferrer">BibTeX</a>
+            </span>
+          </li>
+          <li>
+            <strong>Related work / baseline</strong> — Add more entries.
+            <span class="pub-links">
+              <a href="#" target="_blank" rel="noreferrer">Paper</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="muted">Add lab email, social links, or issue templates.</p>
+      </div>
+
+      <div class="card">
+        <p>
+          For questions, please open a GitHub issue or email:
+          <a href="mailto:YOUR_EMAIL@uwa.edu.au">YOUR_EMAIL@uwa.edu.au</a>
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://github.com/YOUR_ORG/YOUR_REPO/issues" target="_blank" rel="noreferrer">
+            Open an Issue
+          </a>
+          <a class="btn" href="projects.html">Project Page</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer">
+      <p class="muted small">© <span data-year></span> UWA Agent Fact-Checking Framework • Built for GitHub Pages</p>
+      <a class="muted small" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
